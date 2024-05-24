@@ -35,37 +35,43 @@
                     <h3>Registrasi</h3>
                     <p class="mb-4">Silahkan daftarkan akun anda.</p>
                   </div>
-                  <form action="#" method="post">
+                  <form action="#" th:action="@{/register}" th:object="${registerForm}" method="post">
                     <div class="form-group last mb-4">
                       <label for="nama">Nama Lengkap</label>
-                      <input type="text" class="form-control" id="nama">
+                      <input type="text" class="form-control" id="nama" th:field="*{name}">
                     </div>
-      
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
                     <div class="form-group last mb-4">
                       <label for="ttl">Tempat Tanggal Lahir</label>
-                      <input type="text" class="form-control" id="ttl">
+                      <input type="date" class="form-control" id="ttl" th:field="*{ttl}">
                     </div>
-      
+                    <span th:if="${#fields.hasErrors('ttl')}" th:errors="*{ttl}"></span>
+
                     <div class="form-group last mb-4">
                       <label for="nomor">No Handphone</label>
-                      <input type="text" class="form-control" id="nomor">
+                      <input type="text" class="form-control" id="nomor" th:field="*{phoneNumber}">
                     </div>
-      
+                    <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span>
+
                     <div class="form-group last mb-4">
                       <label for="alamat">Alamat</label>
-                      <input type="text" class="form-control" id="alamat">
+                      <input type="text" class="form-control" id="alamat" th:field="*{address}">
                     </div>
-      
+                    <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+
                     <div class="form-group last mb-4">
                       <label for="email">Email</label>
-                      <input type="text" class="form-control" id="email">
+                      <input type="text" class="form-control" id="email" th:field="*{email}">
                     </div>
-      
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
                     <div class="form-group last mb-4">
                       <label for="password">Password</label>
-                      <input type="password" class="form-control" id="password">
+                      <input type="password" class="form-control" id="password" th:field="*{password}">
                     </div>
-      
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+
                     <div class="d-flex mb-5 align-items-center">
                       <label class="control control--checkbox mb-0">
                         <span class="caption">Remember me</span>
