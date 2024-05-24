@@ -55,7 +55,12 @@
           <li><a class="nav-link scrollto " href="#contact">Contact</a></li>
           <li><a class="nav-link scrollto " href="daftar_penerbangan.html">Cek Jadwal</a></li>
           <li><a class="nav-link scrollto " href="transaksi.html">Reservasi</a></li>
-          <li><a class="nav-link scrollto " th:href="@{/login}">LOGIN</a></li>
+          <li><a class="nav-link scrollto " sec:authorize="isAnonymous()" th:href="@{/login}">LOGIN</a></li>
+          <div sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="post">
+              <button class="btn btn-primary" type="submit">Sign Out</button>
+            </form>
+          </div>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
