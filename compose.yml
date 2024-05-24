@@ -1,0 +1,10 @@
+services:
+  db:
+    image: mysql:8.0.36-debian
+    environment:
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: homestead
+      MYSQL_RANDOM_ROOT_PASSWORD: true
+    ports:
+      - 3306:3306
