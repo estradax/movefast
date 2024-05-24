@@ -1,5 +1,7 @@
 package io.github.estradax.movefast.register;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +29,7 @@ public class RegisterController {
   }
 
   @PostMapping("")
-  public String post(@Valid @ModelAttribute RegisterForm registerForm, BindingResult bindingResult) {
+  public String post(@Valid @ModelAttribute RegisterForm registerForm, BindingResult bindingResult, HttpServletRequest request) throws ServletException {
     if (bindingResult.hasErrors()) {
       return "register";
     }
@@ -40,6 +42,8 @@ public class RegisterController {
     }
 
     logger.info("successfully registered new user - email={}", registerForm.getEmail());
+
+    request.login(registerForm.getEmail(), registerForm.getPassword());
 
     return "redirect:/";
   }
