@@ -11,8 +11,8 @@
                 <li><a class="nav-link scrollto " href="#about">About</a></li>
                 <li><a class="nav-link scrollto " href="#services">Services</a></li>
                 <li><a class="nav-link scrollto " href="#contact">Contact</a></li>
-                <li><a class="nav-link scrollto " href="daftar_penerbangan.html">Cek Jadwal</a></li>
-                <li><a class="nav-link scrollto " href="transaksi.html">Reservasi</a></li>
+                <li><a class="nav-link scrollto " th:href="@{/flights}">Cek Jadwal</a></li>
+                <li><a class="nav-link scrollto " th:href="@{/reservation}">Reservasi</a></li>
                 <li><a class="nav-link scrollto " sec:authorize="isAnonymous()" th:href="@{/login}">LOGIN</a></li>
                 <div sec:authorize="isAuthenticated()">
                     <form th:action="@{/logout}" method="post">
