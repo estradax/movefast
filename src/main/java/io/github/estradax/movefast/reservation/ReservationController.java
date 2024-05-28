@@ -28,11 +28,8 @@ public class ReservationController {
       return "transaksi";
     }
 
-    if (!reservationService.create(reservationForm)) {
-      bindingResult.rejectValue("departureCity", "error.departureCity", "something bad happened, try again");
-      return "transaksi";
-    }
+    Integer lastId = reservationService.create(reservationForm);
 
-    return "redirect:/";
+    return String.format("redirect:/invoice?invoice_id=%s", lastId);
   }
 }

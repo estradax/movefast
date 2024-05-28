@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Pemesanan Tiket Pesawat</title>
+    <link rel="stylesheet" href="/ncss/style-invoice.css">
+</head>
+<body>
+<div class="container">
+    <h1>Invoice Pemesanan Tiket Pesawat</h1>
+    <div id="invoiceDetails">
+        <div>
+            <strong>Rute:</strong>
+            <span id="origin" th:text="${reservation.rute}">Jakarta</span>
+        </div>
+        <div>
+            <strong>Tanggal Keberangkatan:</strong>
+            <span id="departureDate" th:text="${reservation.tanggaltf}">12 Agustus 2024</span>
+        </div>
+        <div>
+            <strong>Jumlah Tiket:</strong>
+            <span id="ticketCount">1</span>
+        </div>
+        <div>
+            <strong>Total Pembayaran:</strong>
+            <span id="totalAmount" th:text="${reservation.harga}">Rp 2.000.000</span>
+        </div>
+    </div>
+    <div class="button-container">
+        <button onclick="printInvoice()">Cetak Invoice</button>
+        <a th:href="@{/}" class="btn-back">Kembali ke Halaman Utama</a>
+    </div>
+</div>
+<script>
+    function printInvoice() {
+    var invoiceContent = document.getElementById('invoiceDetails').innerHTML;
+    var originalContent = document.body.innerHTML;
+    document.body.innerHTML = invoiceContent;
+    window.print();
+    document.body.innerHTML = originalContent;
+}
+
+</script>
+</body>
+</html>
