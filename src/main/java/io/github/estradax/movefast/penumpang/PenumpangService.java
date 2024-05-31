@@ -29,4 +29,9 @@ public class PenumpangService {
     String sql = "SELECT * FROM penumpang";
     return jdbcTemplate.query(sql, new PenumpangMapper());
   }
+
+  public void delete(Integer id) {
+    String sql = "DELETE FROM penumpang WHERE idpenumpang = ?";
+    jdbcTemplate.update(sql, id);
+  }
 }

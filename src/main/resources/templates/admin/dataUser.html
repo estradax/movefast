@@ -105,7 +105,9 @@
                     <td th:text="${user.idjadwal}">5001</td>
                     <td>
                         <button class="btn btn-update">Update</button>
-                        <button class="btn btn-delete">Delete</button>
+                        <form method="post" th:action="@{'/admin/users/'+${user.idpenumpang}+'/delete'}">
+                            <button class="btn btn-delete">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 <!-- Add more user rows as needed -->
