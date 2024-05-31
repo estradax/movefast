@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="ncss/bootstrap.min.css">
+
+    <!-- Custom CSS for styling -->
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            margin-right: 5px;
+        }
+
+        .btn-update {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .back-button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        .btn-back-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+
+    <title>Data User</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Data User</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID Penumpang</th>
+                    <th>Nama</th>
+                    <th>TTL</th>
+                    <th>Email</th>
+                    <th>No Telepon</th>
+                    <th>Alamat</th>
+                    <th>Password</th>
+                    <th>ID Pesawat</th>
+                    <th>ID Transaksi</th>
+                    <th>ID Jadwal</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example user data -->
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.idpenumpang}"></td>
+                    <td th:text="${user.nama}">John Doe</td>
+                    <td th:text="${user.ttl}">01-01-1990</td>
+                    <td th:text="${user.email}">user1@example.com</td>
+                    <td th:text="${user.notlfn}">1234567890</td>
+                    <td th:text="${user.alamat}">123 Main St</td>
+                    <td th:text="${user.password}">password123</td>
+                    <td th:text="${user.idpesawat}">1</td>
+                    <td th:text="${user.idtransaksi}">1001</td>
+                    <td th:text="${user.idjadwal}">5001</td>
+                    <td>
+                        <button class="btn btn-update">Update</button>
+                        <button class="btn btn-delete">Delete</button>
+                    </td>
+                </tr>
+                <!-- Add more user rows as needed -->
+            </tbody>
+        </table>
+        <div class="btn-back-container">
+            <a class="back-button" th:href="@{/admin}">Back</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="/njs/jquery-3.3.1.min.js"></script>
+    <script src="/njs/popper.min.js"></script>
+    <script src="/njs/bootstrap.min.js"></script>
+    <script>
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

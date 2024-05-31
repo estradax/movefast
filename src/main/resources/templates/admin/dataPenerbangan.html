@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/ncss/bootstrap.min.css">
+
+    <!-- Custom CSS for styling -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            margin-right: 5px;
+        }
+
+        .btn-update {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .back-button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        .btn-back-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+
+    <title>Data User</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Data User</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID Jadwal</th>
+                    <th>Waktu Berangkat</th>
+                    <th>Waktu Tiba</th>
+                    <th>id Pesawat</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example user data -->
+                <tr th:each="flight : ${flights}">
+                    <td th:text="${flight.nama_maskapai}"></td>
+                    <td th:text="${flight.jenis_pesawat}"></td>
+                    <td th:text="${#dates.format(flight.waktuberangkat, 'dd MMM YYYY HH:mm')}"></td>
+                    <td th:text="${#dates.format(flight.waktutiba, 'dd MMM YYYY HH:mm')}"></td>
+                    <td>
+                        <button class="btn btn-update">Update</button>
+                        <button class="btn btn-delete">Delete</button>
+                    </td>
+                </tr>
+                <!-- Add more user rows as needed -->
+            </tbody>
+        </table>
+        <div class="btn-back-container">
+            <a class="back-button" th:href="@{/admin}">Back</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="/njs/jquery-3.3.1.min.js"></script>
+    <script src="/njs/popper.min.js"></script>
+    <script src="/njs/bootstrap.min.js"></script>
+    <script>
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

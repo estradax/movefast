@@ -1,0 +1,64 @@
+.container {
+    margin-top: 50px;
+    max-width: 700px;
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: 300;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 1em;
+    background-color: #fff;
+  }
+  
+  .form-control:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+  }
+  
+  textarea.form-control {
+    resize: vertical;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 1.1em;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  /* Custom CSS for styling */
+.center-form {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  /* Optional: Add padding to the form for better spacing */
+  #updateUserForm {
+    padding: 20px;
+  }
+
+  
+  

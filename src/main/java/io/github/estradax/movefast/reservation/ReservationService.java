@@ -23,6 +23,11 @@ public class ReservationService {
     return null;
   }
 
+  public List<Reservation> findAll() {
+    String sql = "SELECT * FROM transaksi_tiket";
+    return jdbcTemplate.query(sql, new ReservationMapper());
+  }
+
   public Integer create(ReservationForm reservationForm) {
     String sql = "INSERT INTO transaksi_tiket(rute, kelas, harga, tanggaltf) VALUES (?, ?, ?, ?)";
 

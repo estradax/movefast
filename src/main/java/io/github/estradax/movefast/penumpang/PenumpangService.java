@@ -5,6 +5,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PenumpangService {
   @Autowired
@@ -21,5 +23,10 @@ public class PenumpangService {
     }
 
     return penumpang;
+  }
+
+  public List<Penumpang> findAll() {
+    String sql = "SELECT * FROM penumpang";
+    return jdbcTemplate.query(sql, new PenumpangMapper());
   }
 }
