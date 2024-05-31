@@ -29,11 +29,9 @@ public class ReservationService {
   }
 
   public Integer create(ReservationForm reservationForm) {
-    String sql = "INSERT INTO transaksi_tiket(rute, kelas, harga, tanggaltf) VALUES (?, ?, ?, ?)";
+    String sql = "INSERT INTO transaksi_tiket(rute, kelas, tanggaltf) VALUES (?, ?, ?)";
 
-    String route = String.format("%s - %s", reservationForm.getDepartureCity(), reservationForm.getDestinationCity());
-
-    int count = jdbcTemplate.update(sql, route, reservationForm.getType(), 1000, LocalDate.now());
+    int count = jdbcTemplate.update(sql, reservationForm.getDestinationCity(), reservationForm.getType(), LocalDate.now());
 
     String getLastIdSql = "SELECT MAX(idtransaksi) FROM transaksi_tiket";
     Integer lastId = jdbcTemplate.queryForObject(getLastIdSql, Integer.class);

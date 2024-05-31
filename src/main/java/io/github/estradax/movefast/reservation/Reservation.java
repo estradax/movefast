@@ -6,7 +6,6 @@ public class Reservation {
   private Integer idtransaksi;
   private String rute;
   private String kelas;
-  private Integer harga;
   private LocalDate tanggaltf;
   private Integer idpesawat;
 
@@ -32,14 +31,6 @@ public class Reservation {
 
   public void setKelas(String kelas) {
     this.kelas = kelas;
-  }
-
-  public Integer getHarga() {
-    return harga;
-  }
-
-  public void setHarga(Integer harga) {
-    this.harga = harga;
   }
 
   public LocalDate getTanggaltf() {

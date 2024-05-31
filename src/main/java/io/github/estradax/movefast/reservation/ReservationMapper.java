@@ -12,7 +12,6 @@ public class ReservationMapper implements RowMapper {
     reservation.setIdtransaksi(rs.getInt("idtransaksi"));
     reservation.setRute(rs.getString("rute"));
     reservation.setKelas(rs.getString("kelas"));
-    reservation.setHarga(rs.getInt("harga"));
     reservation.setTanggaltf(rs.getDate("tanggaltf").toLocalDate());
     reservation.setIdpesawat(rs.getInt("idpesawat"));
     return reservation;
