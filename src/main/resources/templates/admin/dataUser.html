@@ -104,7 +104,7 @@
                     <td th:text="${user.idtransaksi}">1001</td>
                     <td th:text="${user.idjadwal}">5001</td>
                     <td>
-                        <button class="btn btn-update">Update</button>
+                        <a th:href="@{'/admin/users/'+${user.idpenumpang}+'/edit'}" class="btn btn-update">Update</a>
                         <form method="post" th:action="@{'/admin/users/'+${user.idpenumpang}+'/delete'}">
                             <button class="btn btn-delete">Delete</button>
                         </form>

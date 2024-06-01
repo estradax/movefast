@@ -104,8 +104,10 @@
                     <td th:text="${plane.nama_maskapai}">Lion Air</td>
                     <td th:text="${plane.jenis_pesawat}">AirBus</td>
                     <td>
-                        <button class="btn btn-update">Update</button>
-                        <button class="btn btn-delete">Delete</button>
+                        <a th:href="@{'/admin/planes/'+${plane.idpesawat}+'/edit'}" class="btn btn-update">Update</a>
+                        <form method="post" th:action="@{'/admin/planes/'+${plane.idpesawat}+'/delete'}">
+                            <button class="btn btn-delete">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 <!-- Add more user rows as needed -->
